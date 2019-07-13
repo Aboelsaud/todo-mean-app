@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <title>Todo App | MEANjs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css.css" type="text/css">
+</head>
+
+<body ng-controller="mainController">
+    <div class="jumbotron jumbotron-fluid bg-hackclub">
+        <div class="row">
+            <span class="container col-md-8 just-md">
+			<h1 class="display-4">Todo App</h1>
+         </span>
+            <span class="container col-md-4 just-md">
+			  <div>		  
+				  <div class="d-inline p-2 bg-primary text-white">Signed In As: <%= CurrentUser.username %> </div>
+				  <div class="d-inline p-2 bg-light text-white"><a href="/logout">logout</a></div>
+			  </div>
+
+		  </span>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group input-group-lg">
+                    <input type="text" ng-model="todo.task" class="form-control" placeholder="Write your daily task here....." aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" ng-click="createTodo()" class="btn btn-outline-info btn-lg">Add Task</button>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+			<div class = "col-md-8">
+			 <div ng-repeat="x in tasks.data">
+				<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<input type="checkbox" ng-model='x.selected'>
+					</div>
+				</div>
+				<h1 class="form-control">{{x.task}}</h1>
+				<h1 class="form-control">{{x.owner}}</h1>
+				<h1 class="form-control">{{x.User}}</h1>
+				<div class="input-group-append">
+					<div class="input-group-text bg-danger" ng-click="deleteTask(x._id)">
+						<i class="fa fa-trash-o text-white"></i>
+					</div>
+				</div>
+			 </div>
+			</div>
+           
+            </div>
+            <div class="col-md ">
+                <div class="container">
+                    <input class="btn btn-primary" type='button' ng-click='checkVal()' value='checkBox'>
+                    <% if(!CurrentUser){ %>
+                        <a href="/login">login</a>
+                        <a href="/register">register</a>
+                        <% } else { %>
+                            <% } %>
+                                <form action="/api/Assign/task" method="post">
+                                    <ul class="list-group ">
+                                        <% User.forEach(function(x) { %>
+                                            <li class="list-group-item">
+                                                <%= x.username %>
+                                                    <input type="checkbox" name="task" value="<%=x.username %>" </li>
+                                                    <% }) %>
+                                    </ul>
+                                        <button class=" btn btn-primary"> Assign Task</button>
+                                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>
