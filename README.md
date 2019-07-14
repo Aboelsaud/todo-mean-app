@@ -16,6 +16,14 @@ There is two options to run this project:`-`
 Important Notes: 1- You must click on checkBox Button before assign any Users.
                  2- You only can Assign one task to one user.
                  3- only admin can see all tasks.
+                 
+                 
 
-
+Registerd Users: Username   password 
+                ---------   ---------
+                Admin         123
+                Samy          123
+                huseein       123
+                Ali           123
+                vanforg       123
 
