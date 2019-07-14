@@ -11,7 +11,10 @@ There is two options to run this project:`-`
     6- npm install body-parser --save
     7- npm install passport --save
     8- npm install passport-local --save
-    9- npm install passport passport-local passport-local-mongoose express-session --save	
+    9- npm install passport passport-local passport-local-mongoose express-session --save
+    10- npm install Angular --save
+    11- npm install passport-local-mongoose --save
+    12- npm install express-session --save
 
 
 
