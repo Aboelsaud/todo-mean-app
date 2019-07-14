@@ -9,9 +9,13 @@ There is two options to run this project:`-`
     5- npm install body-parser --save
     6- npm install passport --save
     7- npm install passport-local --save
+    8- npm install passport passport-local passport-local-mongoose express-session --save	
 
 
 
 Important Notes: 1- You must click on checkBox Button before assign any Users.
                  2- You only can Assign one task to one user.
                  3- only admin can see all tasks.
+
+
+
